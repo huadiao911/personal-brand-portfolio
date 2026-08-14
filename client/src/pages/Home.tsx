@@ -3,8 +3,15 @@
  */
 import { ArrowUpRight, MapPin, Menu, MoveUpRight, X } from "lucide-react";
 import { useState } from "react";
+import FieldworkCarousel, { type FieldworkSlide } from "@/components/FieldworkCarousel";
 
 const assetBase = import.meta.env.BASE_URL + "assets/";
+
+const fieldworkSlides: FieldworkSlide[] = [
+  { src: assetBase + "editorial-hero.webp", alt: "泉州现场观察记录（待替换为真实照片）", place: "泉州 · 现场观察", date: "2024.06", label: "QUANZHOU / FIELD NOTE 014", caption: "地方不是背景，而是故事发生的条件。" },
+  { src: assetBase + "interest-walk.webp", alt: "沿海行走与田野观察（待替换为真实照片）", place: "泉州 · 海边行走", date: "2024.08", label: "WALKING / FIELD NOTE 018", caption: "先走进关系里，再决定如何表达。" },
+  { src: assetBase + "project-archive.webp", alt: "影视项目过程材料（待替换为真实照片）", place: "影视现场 · 制片协作", date: "2022.11", label: "ON SET / PRODUCTION NOTE 006", caption: "复杂现场需要判断，也需要有人把它稳稳接住。" },
+];
 
 const projects = [
   {
@@ -137,6 +144,8 @@ export default function Home() {
           <div className="hero-index">B—01<br /><span>CONTENT / IP<br />/ IMAGE</span></div>
         </section>
 
+        <FieldworkCarousel slides={fieldworkSlides} />
+
         <section className="film-section section-pad" id="film">
           <div className="film-archive-mark">B—02<br /><span>FILM / FIELD<br />NOTE / 2026</span></div>
           <div className="film-heading">
@@ -183,7 +192,7 @@ export default function Home() {
 
         <section className="work-section section-pad" id="work">
           <div className="section-heading"><div className="section-label"><span>04</span><span>SELECTED WORK / 代表项目</span></div><p>我做过的事情不止一种，<br />但都从一个真实问题出发。</p></div>
-          <div className="project-list">{projects.map((project) => <article className={`project-card ${project.tone}`} key={project.number}><div className="project-image"><img src={project.image} alt={project.title} /><span className="project-number">{project.number}</span></div><div className="project-meta"><p className="project-type">{project.type}</p><h3>{project.title}</h3><p className="project-description">{project.description}</p><p className="project-result">{project.result}</p>{project.watchUrl && <a className="project-watch" href={project.watchUrl} target="_blank" rel="noreferrer">观看《台魁巷》 <ArrowUpRight size={15} /></a>}<EditorialTags compact /></div></article>)}</div>
+          <div className="project-list">{projects.map((project) => <article className={`project-card ${project.tone}`} key={project.number}><div className="project-image"><img src={project.image} alt={project.title} /><span className="project-number">{project.number}</span></div><div className="project-meta"><p className="project-type">{project.type}</p><h3><a className="project-title-link" href={`/work/${project.number === "01" ? "taikuixiang" : project.number === "02" ? "ip-training" : "film-production"}`}>{project.title}</a></h3><p className="project-description">{project.description}</p><p className="project-result">{project.result}</p>{project.watchUrl && <a className="project-watch" href={project.watchUrl} target="_blank" rel="noreferrer">观看《台魁巷》 <ArrowUpRight size={15} /></a>}<EditorialTags compact /></div></article>)}</div>
           <div className="archive-footer"><span>影展入围 / 现场执行 / IP培训 / 内容研究</span><a href="#screenings">查看全部视频作品 <ArrowUpRight size={15} /></a></div>
         </section>
 
