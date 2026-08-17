@@ -90,7 +90,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <main className="site-shell">
+    <main className="site-shell future-home">
       <aside className="side-rail">
         <div className="rail-top">
           <a href="#top" className="monogram" aria-label="回到首页"><img src={assetBase + "editorial-mark.webp"} alt="卞冰晶个人品牌标志" /></a>
@@ -133,7 +133,7 @@ export default function Home() {
             <p className="hero-intro">从纪录片的田野与现场，到老板IP的起号和培训；从短剧剧本写作，到 AI 影像实验。我喜欢把复杂的人和事，整理成可以被看见、被理解、也能继续发生的内容。</p>
             <div className="hero-actions"><a className="primary-cta" href="#work">查看代表项目 <MoveUpRight size={17} /></a><a className="text-cta" href="#contact">聊聊你的项目 <ArrowUpRight size={15} /></a></div>
           </div>
-          <div className="hero-image-wrap"><img src={assetBase + "editorial-hero.webp"} alt="桌面上的个人创作档案与编辑材料" /><span className="image-note">FIELD NOTE / 001<br />MAKE THE INVISIBLE CLEAR</span></div>
+          <div className="hero-image-wrap"><img src={assetBase + "editorial-hero.webp"} alt="桌面上的个人创作档案与编辑材料" /><span className="image-note">FIELD NOTE / 001<br />QUANZHOU · 2024.06<br />MAKE THE INVISIBLE CLEAR</span></div>
           <div className="hero-index">B—01<br /><span>CONTENT / IP<br />/ IMAGE</span></div>
         </section>
 
@@ -182,12 +182,12 @@ export default function Home() {
         </section>
 
         <section className="work-section section-pad" id="work">
-          <div className="section-heading"><div className="section-label"><span>04</span><span>SELECTED WORK / 代表项目</span></div><p>我做过的事情不止一种，<br />但都从一个真实问题出发。</p></div>
+          <div className="section-heading"><div className="section-label"><span>04</span><span>SELECTED WORK / 代表项目 / FIELD TRACE</span></div><p>我做过的事情不止一种，<br />但都从一个真实问题出发。</p></div>
           <div className="project-list">{projects.map((project) => <article className={`project-card ${project.tone}`} key={project.number}><div className="project-image"><img src={project.image} alt={project.title} /><span className="project-number">{project.number}</span></div><div className="project-meta"><p className="project-type">{project.type}</p><h3>{project.title}</h3><p className="project-description">{project.description}</p><p className="project-result">{project.result}</p>{project.watchUrl && <a className="project-watch" href={project.watchUrl} target="_blank" rel="noreferrer">观看《台魁巷》 <ArrowUpRight size={15} /></a>}<EditorialTags compact /></div></article>)}</div>
-          <div className="archive-footer"><span>影展入围 / 现场执行 / IP培训 / 内容研究</span><a href="#screenings">查看全部视频作品 <ArrowUpRight size={15} /></a></div>
+          <div className="archive-footer"><span>影展入围 / 现场执行 / IP培训 / 内容研究 / 泉州观察</span><a href="#screenings">查看全部视频作品 <ArrowUpRight size={15} /></a></div>
         </section>
 
-        <section className="story-section section-pad" id="story"><div className="section-label"><span>05</span><span>THE LONG VIEW / 经历轨迹</span></div><div className="story-layout"><div className="story-lead"><h2>我走过的路，<br /><em>还在影响我怎么工作。</em></h2><p>经历不是一串职位名称，而是一次次面对不确定性时，留下来的判断。</p><div className="story-note">“我习惯先到现场，再决定应该怎样讲述。”</div></div><div className="timeline">{timeline.map((item) => <div className="timeline-item" key={item.year}><span className="timeline-year">{item.year}</span><div><h3>{item.title}</h3><p>{item.copy}</p></div></div>)}</div></div></section>
+        <section className="story-section section-pad" id="story"><div className="section-label"><span>05</span><span>THE LONG VIEW / 经历轨迹</span></div><div className="story-layout"><div className="story-lead"><h2>我走过的路，<br /><em>还在影响我怎么工作。</em></h2><p>经历不是一串职位名称，而是一次次面对不确定性时，留下来的判断。</p><div className="story-note">“我习惯先到现场，再决定应该怎样讲述。”<small>FIELD TRACE / 泉州 · 人物 · 关系</small></div></div><div className="timeline">{timeline.map((item) => <div className="timeline-item" key={item.year}><span className="timeline-year">{item.year}</span><div><h3>{item.title}</h3><p>{item.copy}</p></div></div>)}</div></div></section>
 
         <section className="interests-section section-pad"><div className="section-label"><span>06</span><span>OFF THE CLOCK / 兴趣与研究</span></div><div className="interest-grid"><div><h2>工作之外，<br />我在继续研究<br /><em>什么？</em></h2><p>我看过1000多部电影，保持日均阅读，关注文史哲、心理学、管理与商业；也持续参与泉州在地文化、社区营造与田野调查。最近，我在研究AI如何改变剧本、影像和内容生产。</p><div className="interest-list"><span>电影与短剧剧本</span><span>AI影像实验</span><span>泉州在地文化</span><span>田野与社区营造</span><span>阅读与做笔记</span><span>自然教育与旅行</span></div></div><img src={assetBase + "interest-walk.webp"} alt="沿着海边散步的日常观察" /></div></section>
 
